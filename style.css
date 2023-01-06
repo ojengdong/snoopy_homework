@@ -1,0 +1,301 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .visually-hidden {
+    display: none;
+  }
+  
+  /* sticky는 자신 바로 위에 부모요소 안에서만 적용됨! 페이지 전체에 적용 시키려면 
+  body 태그처럼 페이지 전체를 감싸고 있는 태그의 바로 자식요소에 배치 해야함! */
+  
+  /* 1. sticky는 자신의 부모 요소안에서만 적용됨 */
+  /* 부모 height 높이 값만큼만 sticky가 고정됨 */
+  .global-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  nav {
+    /* display: flex는내가 정렬하고 아이템의 부모에게 줘야함 */
+    /* flexible box라고도 부른다. 말 그대로 유연한 박스 배치가 가능! */
+    display: flex;
+    /* 수평정렬 하는 속성  */
+    justify-content: space-between;
+    /* 수직정렬 하는 속성 */
+    align-items: center;
+    /* align-items: center :사진과 동일하게 가운데 선상으로 옮기는 것 */
+    padding: 10px 0;
+    background-color: skyblue;
+  }
+  
+  .logo img {
+    width: 50px;
+    margin-left: 20px;
+  }
+  
+  .gnb-list {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-right: 40px;
+  }
+  
+  .gnb-item a {
+    font-size: 16px;
+    font-weight: 700;
+    transition: all 300ms ease-in-out;
+  }
+  
+  .gnb-item a:hover {
+    color: dodgerblue;
+  }
+  
+  /* main {
+    position: relative;
+    border: 1px solid red;
+  } */
+  
+  .background {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url('./images/스누피배경.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* margin collapse 현상을 없애기 위해 테두리를 떨어지게 해야되므로 padding */
+    /* padding: 1px; */
+    /* filter: brightness(80%); */
+    color: #fff;
+    text-align: center;
+  }
+  
+  .main-title {
+    /* margin collapse 현상이 block 요소에서만 일어나므로 inline-block으로 display 변경*/
+    display: inline-block;
+    font-size: 48px;
+    /* margin-top: 200px; */
+    /* margin collapse effect 일종의 버그 
+    box 2개 위쪽 테두리가 겹침 => 마진이 하나로 합쳐짐 */
+    /* border: 1px solid red; */
+  }
+  
+  .main-content {
+    margin-top: 20px;
+    /* border: 1px solid red; */
+  }
+  
+  .main-btn {
+    /* positon 부여하면 좌표 이동 가능 */
+    /* static : 좌표이동 X / 기본값 */
+    /* relative : 내 원래 위치를 기준으로 이동 / 기준점 잡는 속성 */
+    /* absolute : 태그 중에 positon : relative를 가진 부모 기준*/
+    /* float랑 비슷하게 공중에 뜬다고 생각하면 됨! */
+    position: relative;
+     
+    /* flex colunm을 주면 블록 요소처럼 수직으로 쌓이니까 원하는 위치에 배치 */
+    align-self: center;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    /* border: 1px solid red; */
+  }
+  
+  .post-card {
+    position: relative;
+    top: -80px;
+    text-align: center;
+    width: 80%;
+    /* 최대폭을 결정하는 css 속성 : 이 이상은 커지지 말아라 */
+    max-width: 600px;
+    /* 최소폭을 결정하는 속성 : 이 이하로는 작아지지 말아라 */
+    min-width: 300px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: rgb(217, 241, 254);
+    border-radius: 10px;
+    /* 공중에 떠있는 애들중에 누가 맨 앞에오고 뒤에 올건지 정해주는 속성 : 정수 z-index가 높을수록 앞으로 */
+    /* z-index: -1; */
+    margin-top: 30px;
+  
+    /* padding, border포함된 크기가 박스 사이즈 / content-box가 기본값 */
+    /* box-sizing: border-box; */
+  }
+  
+  /* .post-card.padding {
+    padding: 100px;
+  } */
+  
+  .fixed-back {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(217, 241, 254);
+  }
+  
+  .back1 {
+    width: 500px;
+      height: 500px;
+      background-attachment: fixed;
+      background-image: url('./images/스누피2.png');
+    background-position: bottom left 250px;
+    background-repeat: no-repeat;
+    background-size: 500px;
+    background-color: #fff;
+    margin-right: 20px;
+  }
+  
+  .back2 {
+    width: 500px;
+      height: 500px;
+      background-attachment: fixed;
+      background-image: url('./images/pngegg.png');
+    background-position: bottom right 250px;
+    background-repeat: no-repeat;
+    background-size: 500px;
+    background-color: #fff;
+  }
+  
+  footer {
+    background-color: skyblue;
+    padding: 20px 0;
+  }
+  
+  .global-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .global-footer h3{
+    color: #fff;
+  }
+  
+  .footer-list {
+    display: flex;
+  }
+  
+  .footer-item {
+    margin-right: 20px;
+  }
+  
+  .footer-item :last-child {
+    margin-right: 0;
+  }
+  
+  .footer-item i {
+    font-size: 24px;
+  }
+  
+  .footer-item a {
+    transition: color 300ms ease-in-out;
+  }
+  
+  .footer-item a:hover {
+    color: dodgerblue;
+  }
+  
+  .top-btn i {
+    /* fixed : viewport라고 부르는 브라우저 화면을 기준으로 삼아서 좌표 이동 */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    font-size: 38px;
+    color: rgb(41, 127, 161);
+    z-index: 10;
+  }
+  
+  .side-menu {
+    position: fixed;
+    top: 150px;
+    right: 50px;
+    width: 200px;
+    background-color: #fff;
+    box-shadow: 5px 5px 5px #888;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px 0;
+  }
+  
+  .side-menu-item {
+    padding: 10px;
+  }
+  
+  .side-menu-item a {
+    color: #888;
+    transition: all 300ms ease-in-out;
+  }
+  
+  .side-menu-item a:hover {
+    color: dodgerblue;
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 1200px) {
+    nav,footer {
+        background-color: rgb(245, 181, 62);
+    }
+    .back1 {
+        width: 100%;
+        height: 100%;
+        background-size: 500px;
+        background-color: rgb(217, 241, 254);
+      }
+    .back2 {
+        display: none;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    nav, footer {
+        background-color: rgb(137, 192, 54);
+    }
+
+    .back1 {
+        width: 100%;
+        height: 100%;
+        background-size: 500px;
+        background-color: rgb(217, 241, 254);
+        background-position: center;
+      }
+    .back2 {
+        display: none;
+    }
+
+    .side-menu {
+       display: none;
+      }
+
+      .global-footer {
+        display: block;
+        justify-content: center;
+        width: 30%;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .footer-list {
+        text-align: center;
+        margin: 0 auto;
+        justify-content: center;
+      }
+  }
